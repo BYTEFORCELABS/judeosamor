@@ -1,0 +1,232 @@
+[
+  {
+    "id": "gal_live_praise_fire",
+    "title": "Fire on the Altar",
+    "category": "Live Concerts",
+    "imageUrl": "/images/live_praise_fire.jpg",
+    "caption": "Hands lifted mid-praise as the whole auditorium breaks into worship.",
+    "featured": true,
+    "span": "wide",
+    "createdAt": "2026-09-01T12:00:00.000Z"
+  },
+  {
+    "id": "gal_reverb_joy_denim",
+    "title": "Pure Joy",
+    "category": "The Reverb",
+    "imageUrl": "/images/reverb_joy_denim.jpg",
+    "caption": "Caught mid-laugh during a praise break with the band in full flight.",
+    "featured": true,
+    "span": "normal",
+    "createdAt": "2026-09-01T11:00:00.000Z"
+  },
+  {
+    "id": "gal_live_crowd_bw",
+    "title": "Every Hand Lifted",
+    "category": "Live Concerts",
+    "imageUrl": "/images/live_crowd_bw.jpg",
+    "caption": "Turning the room over to the congregation, with not a single seat still.",
+    "featured": true,
+    "span": "tall",
+    "createdAt": "2026-09-01T10:00:00.000Z"
+  },
+  {
+    "id": "gal_live_worship_portrait",
+    "title": "Lifted Voice",
+    "category": "Live Concerts",
+    "imageUrl": "/images/live_worship_portrait.jpg",
+    "caption": "Deep in the song, hand open, leading the house into adoration.",
+    "featured": true,
+    "span": "normal",
+    "createdAt": "2026-09-01T09:00:00.000Z"
+  },
+  {
+    "id": "gal_reverb_praise_lean",
+    "title": "All the Way Back",
+    "category": "The Reverb",
+    "imageUrl": "/images/reverb_praise_lean.jpg",
+    "caption": "The praise team leaning into the last chorus of the night.",
+    "featured": true,
+    "span": "wide",
+    "createdAt": "2026-09-01T08:00:00.000Z"
+  },
+  {
+    "id": "gal_live_congregation",
+    "title": "Face to Face",
+    "category": "Live Concerts",
+    "imageUrl": "/images/live_congregation.jpg",
+    "caption": "Stepping to the edge of the stage to sing straight into the crowd.",
+    "featured": true,
+    "span": "normal",
+    "createdAt": "2026-09-01T07:00:00.000Z"
+  },
+  {
+    "id": "gal_reverb_ministering",
+    "title": "A Word Before the Song",
+    "category": "The Reverb",
+    "imageUrl": "/images/reverb_ministering.jpg",
+    "caption": "A moment of exhortation between ministrations.",
+    "featured": true,
+    "span": "normal",
+    "createdAt": "2026-09-01T06:00:00.000Z"
+  },
+  {
+    "id": "gal_about_award_portrait_v2",
+    "title": "Minister Lilian Nneji",
+    "category": "Portraits",
+    "imageUrl": "/images/about_award_portrait_v2.jpg",
+    "caption": "On stage, mid-ministration, in her signature white cap.",
+    "featured": true,
+    "span": "normal",
+    "createdAt": "2026-09-01T05:00:00.000Z"
+  },
+  {
+    "id": "gal_live_dancers_stage",
+    "title": "Praise in Motion",
+    "category": "Live Concerts",
+    "imageUrl": "/images/live_dancers_stage.jpg",
+    "caption": "The full company of dancers and singers moving as one.",
+    "featured": false,
+    "span": "wide",
+    "createdAt": "2026-09-01T04:00:00.000Z"
+  },
+  {
+    "id": "gal_reverb_banner_stage",
+    "title": "Now Ministering",
+    "category": "The Reverb",
+    "imageUrl": "/images/reverb_banner_stage.jpg",
+    "caption": "Taking the stage as the house rises to its feet.",
+    "featured": false,
+    "span": "normal",
+    "createdAt": "2026-09-01T03:00:00.000Z"
+  },
+  {
+    "id": "gal_live_choir_wide",
+    "title": "The Full Stage",
+    "category": "Live Concerts",
+    "imageUrl": "/images/live_choir_wide.jpg",
+    "caption": "Backing vocalists and dancers in formation under the crest.",
+    "featured": false,
+    "span": "normal",
+    "createdAt": "2026-09-01T02:00:00.000Z"
+  },
+  {
+    "id": "gal_reverb_praise_team",
+    "title": "The Praise Team",
+    "category": "The Reverb",
+    "imageUrl": "/images/reverb_praise_team.jpg",
+    "caption": "Voices in blue, carrying the harmony behind the lead.",
+    "featured": false,
+    "span": "wide",
+    "createdAt": "2026-09-01T01:00:00.000Z"
+  },
+  {
+    "id": "gal_about_yellow_studio_v2",
+    "title": "In Full Voice",
+    "category": "Portraits",
+    "imageUrl": "/images/about_yellow_studio_v2.jpg",
+    "caption": "Holding a long note with the band driving behind her.",
+    "featured": false,
+    "span": "tall",
+    "createdAt": "2026-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "gal_live_duet_stage",
+    "title": "Call and Response",
+    "category": "Live Concerts",
+    "imageUrl": "/images/live_duet_stage.jpg",
+    "caption": "Trading lines with a backing vocalist mid-song.",
+    "featured": false,
+    "span": "normal",
+    "createdAt": "2026-08-31T23:00:00.000Z"
+  },
+  {
+    "id": "gal_band_drummers",
+    "title": "Talking Drums",
+    "category": "Praise Team & Band",
+    "imageUrl": "/images/band_drummers.jpg",
+    "caption": "The percussion section driving the tempo of the praise.",
+    "featured": false,
+    "span": "normal",
+    "createdAt": "2026-08-31T22:00:00.000Z"
+  },
+  {
+    "id": "gal_reverb_polaroid_3_v2",
+    "title": "Two Voices, One Song",
+    "category": "Live Concerts",
+    "imageUrl": "/images/reverb_polaroid_3_v2.jpg",
+    "caption": "Leading a call-and-response with one of the vocalists.",
+    "featured": false,
+    "span": "normal",
+    "createdAt": "2026-08-31T21:00:00.000Z"
+  },
+  {
+    "id": "gal_stay_in_touch_bw_v2",
+    "title": "Between Sets",
+    "category": "Portraits",
+    "imageUrl": "/images/stay_in_touch_bw_v2.jpg",
+    "caption": "A quiet moment off-stage before the next ministration.",
+    "featured": false,
+    "span": "wide",
+    "createdAt": "2026-08-31T20:00:00.000Z"
+  },
+  {
+    "id": "gal_band_talking_drum_bw",
+    "title": "The Drummer",
+    "category": "Praise Team & Band",
+    "imageUrl": "/images/band_talking_drum_bw.jpg",
+    "caption": "Talking drum in hand, holding the groove together.",
+    "featured": false,
+    "span": "tall",
+    "createdAt": "2026-08-31T19:00:00.000Z"
+  },
+  {
+    "id": "gal_reverb_wide_stage",
+    "title": "Packed House",
+    "category": "The Reverb",
+    "imageUrl": "/images/reverb_wide_stage.jpg",
+    "caption": "A full room from the back of the hall.",
+    "featured": false,
+    "span": "wide",
+    "createdAt": "2026-08-31T18:00:00.000Z"
+  },
+  {
+    "id": "gal_band_keys_bass",
+    "title": "Keys and Bass",
+    "category": "Praise Team & Band",
+    "imageUrl": "/images/band_keys_bass.jpg",
+    "caption": "The rhythm section laying the foundation for the praise.",
+    "featured": false,
+    "span": "normal",
+    "createdAt": "2026-08-31T17:00:00.000Z"
+  },
+  {
+    "id": "gal_reverb_polaroid_2_v2",
+    "title": "Bowed in Worship",
+    "category": "Live Concerts",
+    "imageUrl": "/images/reverb_polaroid_2_v2.jpg",
+    "caption": "The dancers bowed low as the room shifts into worship.",
+    "featured": false,
+    "span": "normal",
+    "createdAt": "2026-08-31T16:00:00.000Z"
+  },
+  {
+    "id": "gal_reverb_polaroid_1_v2",
+    "title": "Voices in Blue",
+    "category": "The Reverb",
+    "imageUrl": "/images/reverb_polaroid_1_v2.jpg",
+    "caption": "The praise team mid-song under the stage lights.",
+    "featured": false,
+    "span": "normal",
+    "createdAt": "2026-08-31T15:00:00.000Z"
+  },
+  {
+    "id": "gal_band_guitars_bw",
+    "title": "Strings",
+    "category": "Praise Team & Band",
+    "imageUrl": "/images/band_guitars_bw.jpg",
+    "caption": "Lead and bass guitar locked in behind the vocals.",
+    "featured": false,
+    "span": "tall",
+    "createdAt": "2026-08-31T14:00:00.000Z"
+  }
+]
