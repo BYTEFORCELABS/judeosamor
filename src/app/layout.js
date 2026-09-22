@@ -1,16 +1,23 @@
 import "./globals.css";
-import { Playfair_Display, Inter } from "next/font/google";
+import localFont from "next/font/local";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
+/**
+ * Futura is the brand face (see "Dr. Jude Osamor - Brand Identity Guidelines").
+ * It is the ONLY family on the site — hierarchy comes from weight, size and
+ * tracking, never from swapping in a second typeface.
+ */
+const futura = localFont({
+  src: [
+    { path: "../../public/fonts/Futura-Light.woff", weight: "300", style: "normal" },
+    { path: "../../public/fonts/Futura-Book.woff", weight: "400", style: "normal" },
+    { path: "../../public/fonts/Futura-Medium.woff", weight: "500", style: "normal" },
+    { path: "../../public/fonts/Futura-Bold.woff", weight: "700", style: "normal" },
+    { path: "../../public/fonts/Futura-ExtraBold.woff", weight: "800", style: "normal" },
+  ],
+  variable: "--font-futura",
   display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
+  // Closest widely-installed geometric sans before Arial's metric fallback.
+  fallback: ["Avenir Next", "Avenir", "Century Gothic", "system-ui", "sans-serif"],
 });
 
 export const metadata = {
@@ -57,10 +64,22 @@ export const metadata = {
   },
 };
 
+// Applies the saved theme before first paint so the page never flashes the
+// wrong palette. Dark is the brand default; light is opt-in.
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}})()`;
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`scroll-smooth dark ${playfair.variable} ${inter.variable}`}>
-      <body className="bg-[#071322] text-[#F9F6F0] min-h-screen flex flex-col font-sans selection:bg-[#C6A98A] selection:text-[#0A1E35] antialiased">
+    <html
+      lang="en"
+      className={`scroll-smooth ${futura.variable}`}
+      data-theme="dark"
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="bg-black text-ink min-h-screen flex flex-col selection:bg-gold selection:text-on-gold antialiased">
         {children}
       </body>
     </html>

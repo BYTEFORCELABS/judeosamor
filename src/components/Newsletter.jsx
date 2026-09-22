@@ -42,15 +42,15 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="bg-[#071322] py-20 sm:py-28 text-white overflow-hidden border-t border-white/5 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#0A1E35_0%,#071322_80%)] pointer-events-none" />
+    <section className="bg-black py-20 sm:py-28 text-ink overflow-hidden border-t border-hairline relative">
+      <div className="section-wash" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Brand Emblem & Monogram */}
           <Reveal variant="left" className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-md bg-[#0A1E35] border border-[#C6A98A]/30 p-8 sm:p-10 shadow-2xl relative">
+            <div className="w-full max-w-md bg-zinc-900 border border-gold/30 p-8 sm:p-10 shadow-2xl relative rounded-[1.25rem]">
               <div className="space-y-6 text-center">
                 <div className="relative w-24 h-24 mx-auto">
                   <Image
@@ -62,10 +62,10 @@ export default function Newsletter() {
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-[11px] uppercase tracking-[0.22em] text-[#C6A98A] font-semibold">
+                  <p className="text-[11px] uppercase tracking-brand text-gold font-semibold">
                     Strategic Intelligence
                   </p>
-                  <h3 className="font-serif text-2xl font-bold text-white">
+                  <h3 className="font-display text-2xl font-bold text-ink">
                     Cyber & AI Executive Brief
                   </h3>
                   <p className="text-xs text-zinc-400 font-sans leading-relaxed">
@@ -79,12 +79,12 @@ export default function Newsletter() {
           {/* Right Column: Narrative & Form */}
           <Reveal variant="right" className="lg:col-span-7 space-y-6">
             <div className="space-y-3">
-              <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C6A98A]">
+              <span className="text-xs uppercase tracking-brand font-semibold text-gold">
                 Executive Briefing
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F9F6F0] leading-tight">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink leading-tight">
                 Stay Ahead of Frontier <br className="hidden sm:inline" />
-                <span className="text-[#C6A98A] italic font-normal">Threat Vectors</span>
+                <span className="text-gold font-light">Threat Vectors</span>
               </h2>
               <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
                 Join a selected network of CISOs, enterprise architects, academics, and policymakers receiving 
@@ -93,9 +93,9 @@ export default function Newsletter() {
             </div>
 
             {subscribed ? (
-              <div className="p-5 bg-[#0A1E35] border border-[#C6A98A]/40 flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#C6A98A] shrink-0" />
-                <p className="text-xs uppercase tracking-wider text-[#DAC8B3] font-medium font-sans">
+              <div className="p-5 bg-zinc-900 border border-gold/40 flex items-center gap-3 rounded-[1.25rem]">
+                <CheckCircle2 className="w-5 h-5 text-gold shrink-0" />
+                <p className="text-xs uppercase tracking-wider text-gold-bright font-medium font-sans">
                   {feedbackMsg}
                 </p>
               </div>
@@ -110,13 +110,13 @@ export default function Newsletter() {
                       placeholder="Enter executive or institutional email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-[#0A1E35] border border-white/10 pl-11 pr-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#C6A98A] transition-colors"
+                      className="w-full bg-zinc-900 border border-hairline pl-11 pr-4 py-3.5 text-sm text-ink placeholder-zinc-500 focus:outline-none focus:border-gold transition-colors rounded-xl"
                     />
                   </div>
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-6 py-3.5 bg-[#C6A98A] text-[#0A1E35] text-xs uppercase tracking-[0.18em] font-semibold hover:bg-[#DAC8B3] transition-colors shrink-0 flex items-center justify-center gap-2 cursor-pointer shadow-md disabled:opacity-50"
+                    className="px-6 py-3.5 bg-gold text-on-gold text-xs uppercase tracking-brand font-semibold hover:bg-gold-bright transition-colors shrink-0 flex items-center justify-center gap-2 cursor-pointer shadow-md disabled:opacity-50"
                   >
                     {loading ? (
                       <span>Subscribing...</span>

@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#071322] text-[#F9F6F0]">
+    <div className="flex flex-col min-h-screen bg-black text-ink">
       <Navbar />
       <main className="flex-grow">
         <Hero />

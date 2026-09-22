@@ -31,14 +31,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#050E18] text-white pt-20 pb-12 border-t border-white/10 relative">
+    <footer className="bg-black text-ink pt-20 pb-12 border-t border-hairline relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-16">
         
         {/* Top Tier: Brand Lockup & Direct Navigation */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-12 border-b border-hairline">
           
           {/* Brand Identity & Monogram */}
-          <div className="lg:col-span-5 space-y-6">
+          <Reveal variant="up" className="lg:col-span-5 space-y-6">
             <div className="relative w-56 h-14">
               <Image
                 src="/images/logo_white_text.png"
@@ -49,7 +49,7 @@ export default function Footer() {
               />
             </div>
 
-            <p className="text-xs uppercase tracking-[0.2em] text-[#C6A98A] font-semibold">
+            <p className="text-xs uppercase tracking-brand text-gold font-semibold">
               PhD &middot; Cybersecurity Executive &middot; Co-Founder CyBlack
             </p>
 
@@ -57,77 +57,77 @@ export default function Footer() {
               Balancing rigorous academic inquiry with decisive enterprise cyber defense leadership. 
               Committed to quiet resilience, critical infrastructure security, and diversifying the technology ecosystem.
             </p>
-          </div>
+          </Reveal>
 
           {/* Navigation Links */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-serif text-sm font-bold uppercase tracking-wider text-[#DAC8B3]">
+          <Reveal variant="up" delay={90} className="lg:col-span-3 space-y-4">
+            <h4 className="font-display text-sm font-bold uppercase tracking-wider text-gold-bright">
               Navigation
             </h4>
-            <ul className="space-y-2.5 text-xs uppercase tracking-[0.16em] text-zinc-300 font-sans">
+            <ul className="space-y-2.5 text-xs uppercase tracking-brand text-zinc-300 font-sans">
               <li>
-                <Link href="/#about" className="hover:text-[#C6A98A] transition-colors">
+                <Link href="/#about" className="hover:text-gold transition-colors">
                   Executive Biography
                 </Link>
               </li>
               <li>
-                <Link href="/#pillars" className="hover:text-[#C6A98A] transition-colors">
+                <Link href="/#pillars" className="hover:text-gold transition-colors">
                   Brand Pillars
                 </Link>
               </li>
               <li>
-                <Link href="/#cyblack" className="hover:text-[#C6A98A] transition-colors">
+                <Link href="/#cyblack" className="hover:text-gold transition-colors">
                   CyBlack Non-Profit
                 </Link>
               </li>
               <li>
-                <Link href="/#research" className="hover:text-[#C6A98A] transition-colors">
+                <Link href="/#research" className="hover:text-gold transition-colors">
                   Research & Publications
                 </Link>
               </li>
               <li>
-                <Link href="/#media" className="hover:text-[#C6A98A] transition-colors">
+                <Link href="/#media" className="hover:text-gold transition-colors">
                   Media & Keynotes
                 </Link>
               </li>
               <li>
-                <Link href="/#advisory" className="hover:text-[#C6A98A] transition-colors">
+                <Link href="/#advisory" className="hover:text-gold transition-colors">
                   Speaking & Advisory
                 </Link>
               </li>
             </ul>
-          </div>
+          </Reveal>
 
           {/* Institutional Contact */}
-          <div className="lg:col-span-4 space-y-4">
-            <h4 className="font-serif text-sm font-bold uppercase tracking-wider text-[#DAC8B3]">
+          <Reveal variant="up" delay={180} className="lg:col-span-4 space-y-4">
+            <h4 className="font-display text-sm font-bold uppercase tracking-wider text-gold-bright">
               Institutional Channels
             </h4>
             
             <div className="space-y-3 text-xs text-zinc-300 font-sans">
               <div className="flex items-center gap-2.5">
-                <Mail className="w-3.5 h-3.5 text-[#C6A98A]" />
-                <a href="mailto:contact@judeosamor.com" className="hover:text-[#C6A98A] transition-colors">
+                <Mail className="w-3.5 h-3.5 text-gold" />
+                <a href="mailto:contact@judeosamor.com" className="hover:text-gold transition-colors">
                   contact@judeosamor.com
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#C6A98A]" />
-                <a href="https://cyblack.org" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6A98A] transition-colors flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-gold" />
+                <a href="https://cyblack.org" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors flex items-center gap-1.5">
                   <span>CyBlack UK (cyblack.org)</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <MapPin className="w-3.5 h-3.5 text-[#C6A98A]" />
+                <MapPin className="w-3.5 h-3.5 text-gold" />
                 <span>London & Bristol, United Kingdom</span>
               </div>
             </div>
 
             {/* Social Icons */}
-            <div className="pt-2 flex items-center gap-4 text-[#C6A98A]">
+            <div className="pt-2 flex items-center gap-4 text-gold">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -137,14 +137,14 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className="w-8 h-8 rounded border border-[#C6A98A]/30 flex items-center justify-center hover:bg-[#C6A98A] hover:text-[#0A1E35] transition-all duration-200"
+                    className="w-8 h-8 rounded border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-zinc-900 transition-all duration-200"
                   >
                     <Icon className="w-3.5 h-3.5" />
                   </a>
                 );
               })}
             </div>
-          </div>
+          </Reveal>
 
         </div>
 

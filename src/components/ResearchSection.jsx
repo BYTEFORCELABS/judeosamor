@@ -91,10 +91,10 @@ export default function ResearchSection() {
       : publications.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="research" className="relative bg-[#0A1E35] py-24 sm:py-32 border-t border-white/5 overflow-hidden text-white">
+    <section id="research" className="relative bg-zinc-900 py-24 sm:py-32 border-t border-hairline overflow-hidden text-ink">
       {/* Subtle radial aura */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,#071322_0%,#0A1E35_60%)] pointer-events-none" />
-      <div className="absolute -top-24 left-1/3 w-[500px] h-[500px] bg-[#C6A98A]/[0.04] rounded-full blur-[160px] pointer-events-none" />
+      <div className="section-wash" />
+      <div className="absolute -top-24 left-1/3 w-[500px] h-[500px] bg-gold/[0.04] rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 space-y-16">
         
@@ -102,12 +102,12 @@ export default function ResearchSection() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div className="space-y-4 max-w-2xl">
             <Reveal variant="fade">
-              <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C6A98A]">
+              <span className="text-xs uppercase tracking-brand font-semibold text-gold">
                 Scholarship & Peer-Reviewed Inquiry
               </span>
             </Reveal>
 
-            <Reveal as="h2" variant="wipe" className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#F9F6F0] font-bold tracking-tight">
+            <Reveal as="h2" variant="wipe" className="font-display text-3xl sm:text-5xl lg:text-6xl text-ink font-bold tracking-tight">
               Research & Strategic Publications
             </Reveal>
 
@@ -122,7 +122,7 @@ export default function ResearchSection() {
               href="https://www.researchgate.net/profile/Jude-Osamor"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 bg-[#071322] border border-[#C6A98A]/40 text-[#C6A98A] hover:bg-[#C6A98A] hover:text-[#0A1E35] text-xs uppercase tracking-[0.18em] font-semibold transition-all duration-300 shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-black border border-gold/40 text-gold hover:bg-gold hover:text-zinc-900 text-xs uppercase tracking-brand font-semibold transition-all duration-300 shadow-sm rounded-full"
             >
               <span>ResearchGate Profile</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -131,7 +131,7 @@ export default function ResearchSection() {
               href="https://sciprofiles.com/profile/judeosamor"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 border border-white/10 text-zinc-300 hover:text-white hover:border-white/30 text-xs uppercase tracking-[0.18em] font-medium transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-3 border border-hairline text-zinc-300 hover:text-ink hover:border-hairline text-xs uppercase tracking-brand font-medium transition-colors rounded-full"
             >
               <span>SciProfiles</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -140,15 +140,15 @@ export default function ResearchSection() {
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="flex flex-wrap gap-2 border-b border-white/10 pb-4">
+        <div className="flex flex-wrap gap-2 border-b border-hairline pb-4">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 text-xs uppercase tracking-[0.16em] font-semibold transition-all duration-200 cursor-pointer ${
+              className={`px-4 py-2 text-xs uppercase tracking-brand font-semibold transition-all duration-200 cursor-pointer ${
                 activeCategory === cat.id
-                  ? "bg-[#C6A98A] text-[#0A1E35] shadow-md"
-                  : "bg-[#071322]/60 text-zinc-400 hover:text-white border border-white/5 hover:border-white/20"
+                  ? "bg-gold text-on-gold shadow-md"
+                  : "bg-black/60 text-zinc-400 hover:text-ink border border-hairline hover:border-hairline"
               }`}
             >
               {cat.label}
@@ -160,18 +160,18 @@ export default function ResearchSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPubs.map((pub, idx) => (
             <Reveal key={pub.title} variant="up" delay={idx * 70}>
-              <div className="h-full bg-[#071322] border border-white/10 p-7 flex flex-col justify-between hover:border-[#C6A98A]/50 transition-all duration-300 group">
+              <div className="card-lift h-full bg-black border border-hairline p-7 flex flex-col justify-between group rounded-[1.25rem]">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-[11px] uppercase tracking-[0.18em] font-semibold text-[#C6A98A]">
+                    <span className="text-[11px] uppercase tracking-brand font-semibold text-gold">
                       {pub.year} &middot; {pub.journal}
                     </span>
-                    <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 border border-[#C6A98A]/30 text-[#DAC8B3]">
+                    <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 border border-gold/30 text-gold-bright rounded-full">
                       {pub.highlight}
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-white group-hover:text-[#DAC8B3] transition-colors leading-snug">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-ink group-hover:text-gold-bright transition-colors leading-snug">
                     {pub.title}
                   </h3>
 
@@ -180,12 +180,12 @@ export default function ResearchSection() {
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-white/5 space-y-4">
+                <div className="pt-6 mt-6 border-t border-hairline space-y-4">
                   <div className="flex flex-wrap gap-1.5">
                     {pub.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[10px] uppercase tracking-wider px-2 py-0.5 bg-[#0A1E35] text-zinc-300 border border-white/5"
+                        className="text-[10px] uppercase tracking-wider px-2 py-0.5 bg-zinc-900 text-zinc-300 border border-hairline rounded-full"
                       >
                         {tag}
                       </span>
@@ -196,7 +196,7 @@ export default function ResearchSection() {
                     href={pub.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.16em] text-[#C6A98A] group-hover:text-white font-semibold transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs uppercase tracking-brand text-gold group-hover:text-ink font-semibold transition-colors"
                   >
                     <span>View Academic Paper</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

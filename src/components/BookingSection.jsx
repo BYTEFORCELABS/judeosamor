@@ -32,25 +32,25 @@ export default function BookingSection() {
   };
 
   return (
-    <section id="advisory" className="relative py-24 sm:py-32 bg-[#0A1E35] overflow-hidden text-white border-t border-white/5">
+    <section id="advisory" className="relative py-24 sm:py-32 bg-zinc-900 overflow-hidden text-ink border-t border-hairline">
       {/* Background ambient gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,#071322_0%,#0A1E35_70%)] pointer-events-none" />
-      <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-[#C6A98A]/[0.04] blur-[160px] pointer-events-none rounded-full" />
+      <div className="section-wash" />
+      <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-gold/[0.04] blur-[160px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 space-y-16">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <Reveal variant="fade">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 border border-[#C6A98A]/35 bg-[#071322]/80">
-              <Calendar className="w-3.5 h-3.5 text-[#C6A98A]" />
-              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#DAC8B3]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 border border-gold/35 bg-black/80 rounded-full">
+              <Calendar className="w-3.5 h-3.5 text-gold" />
+              <span className="text-[11px] uppercase tracking-brand font-semibold text-gold-bright">
                 Executive Advisory & Keynotes
               </span>
             </div>
           </Reveal>
 
-          <Reveal as="h2" variant="wipe" className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#F9F6F0] font-bold tracking-tight">
+          <Reveal as="h2" variant="wipe" className="font-display text-3xl sm:text-5xl lg:text-6xl text-ink font-bold tracking-tight">
             Consultation & Speaking Inquiries
           </Reveal>
 
@@ -64,16 +64,14 @@ export default function BookingSection() {
           
           {/* Left Column: Direct Institutional Channels */}
           <Reveal variant="left" className="lg:col-span-5 space-y-8">
-            <div className="bg-[#071322] border border-[#C6A98A]/25 p-8 sm:p-10 space-y-8 shadow-2xl relative">
+            <div className="bg-black border border-gold/25 p-8 sm:p-10 space-y-8 shadow-2xl relative rounded-[1.25rem]">
               {/* Gold corner brackets */}
-              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#C6A98A]" />
-              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#C6A98A]" />
 
               <div className="space-y-3">
-                <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C6A98A]">
+                <span className="text-xs uppercase tracking-brand font-semibold text-gold">
                   Direct Protocols
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-white">
+                <h3 className="font-display text-2xl font-bold text-ink">
                   Institutional Inquiries
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed">
@@ -82,36 +80,36 @@ export default function BookingSection() {
               </div>
 
               <div className="space-y-4 pt-2 text-sm text-zinc-300 font-sans">
-                <div className="flex items-start gap-3.5 p-3.5 bg-[#0A1E35]/60 border border-white/5">
-                  <Mail className="w-4 h-4 text-[#C6A98A] mt-1 shrink-0" />
+                <div className="flex items-start gap-3.5 p-3.5 bg-zinc-900/60 border border-hairline rounded-[1.25rem]">
+                  <Mail className="w-4 h-4 text-gold mt-1 shrink-0" />
                   <div>
                     <p className="text-[11px] uppercase tracking-wider text-zinc-400">Advisory Inquiries</p>
-                    <a href="mailto:contact@judeosamor.com" className="text-white hover:text-[#C6A98A] transition-colors font-medium">
+                    <a href="mailto:contact@judeosamor.com" className="text-ink hover:text-gold transition-colors font-medium">
                       contact@judeosamor.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 bg-[#0A1E35]/60 border border-white/5">
-                  <Building2 className="w-4 h-4 text-[#C6A98A] mt-1 shrink-0" />
+                <div className="flex items-start gap-3.5 p-3.5 bg-zinc-900/60 border border-hairline rounded-[1.25rem]">
+                  <Building2 className="w-4 h-4 text-gold mt-1 shrink-0" />
                   <div>
                     <p className="text-[11px] uppercase tracking-wider text-zinc-400">CyBlack Non-Profit Partnerships</p>
-                    <a href="mailto:partnerships@cyblack.org" className="text-white hover:text-[#C6A98A] transition-colors font-medium">
+                    <a href="mailto:partnerships@cyblack.org" className="text-ink hover:text-gold transition-colors font-medium">
                       partnerships@cyblack.org
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 bg-[#0A1E35]/60 border border-white/5">
-                  <MapPin className="w-4 h-4 text-[#C6A98A] mt-1 shrink-0" />
+                <div className="flex items-start gap-3.5 p-3.5 bg-zinc-900/60 border border-hairline rounded-[1.25rem]">
+                  <MapPin className="w-4 h-4 text-gold mt-1 shrink-0" />
                   <div>
                     <p className="text-[11px] uppercase tracking-wider text-zinc-400">Location & Availability</p>
-                    <p className="text-white font-medium">United Kingdom &middot; Global Engagements (In-Person / Virtual)</p>
+                    <p className="text-ink font-medium">United Kingdom &middot; Global Engagements (In-Person / Virtual)</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 bg-[#0A1E35]/60 border border-white/5">
-                  <Clock className="w-4 h-4 text-[#C6A98A] mt-1 shrink-0" />
+                <div className="flex items-start gap-3.5 p-3.5 bg-zinc-900/60 border border-hairline rounded-[1.25rem]">
+                  <Clock className="w-4 h-4 text-gold mt-1 shrink-0" />
                   <div>
                     <p className="text-[11px] uppercase tracking-wider text-zinc-400">Response Protocol</p>
                     <p className="text-zinc-300">Executive correspondence reviewed within 48 business hours.</p>
@@ -119,7 +117,7 @@ export default function BookingSection() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/10 text-xs text-zinc-400 italic font-serif">
+              <div className="pt-4 border-t border-hairline text-xs text-zinc-400 font-display">
                 &ldquo;True security is never loud, reactionary, or flashy. It is a state of quiet, robust, and unshakeable resilience.&rdquo;
               </div>
             </div>
@@ -127,13 +125,13 @@ export default function BookingSection() {
 
           {/* Right Column: Inquiry Form */}
           <Reveal variant="right" className="lg:col-span-7">
-            <div className="bg-[#071322] border border-white/10 p-8 sm:p-10 shadow-2xl">
+            <div className="bg-black border border-hairline p-8 sm:p-10 shadow-2xl rounded-[1.25rem]">
               {isSubmitted ? (
                 <div className="py-12 text-center space-y-5">
-                  <div className="w-16 h-16 rounded-full bg-[#0A1E35] border border-[#C6A98A] text-[#C6A98A] flex items-center justify-center mx-auto shadow-lg">
+                  <div className="w-16 h-16 rounded-full bg-zinc-900 border border-gold text-gold flex items-center justify-center mx-auto shadow-lg">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-ink">
                     Inquiry Received
                   </h3>
                   <p className="text-zinc-300 text-sm max-w-md mx-auto leading-relaxed font-sans">
@@ -154,7 +152,7 @@ export default function BookingSection() {
                         message: "",
                       });
                     }}
-                    className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#0A1E35] border border-[#C6A98A]/50 text-[#C6A98A] text-xs uppercase tracking-[0.18em] font-semibold hover:bg-[#C6A98A] hover:text-[#0A1E35] transition-colors"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 bg-zinc-900 border border-gold/50 text-gold text-xs uppercase tracking-brand font-semibold hover:bg-gold hover:text-zinc-900 transition-colors rounded-full"
                   >
                     Submit Another Inquiry
                   </button>
@@ -163,7 +161,7 @@ export default function BookingSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="block text-xs uppercase tracking-[0.16em] font-semibold text-zinc-300">
+                      <label className="block text-xs uppercase tracking-brand font-semibold text-zinc-300">
                         Full Name *
                       </label>
                       <input
@@ -172,12 +170,12 @@ export default function BookingSection() {
                         placeholder="e.g. Sarah Jenkins"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        className="w-full bg-[#0A1E35] border border-white/10 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#C6A98A] transition-colors"
+                        className="w-full bg-zinc-900 border border-hairline px-4 py-3 text-sm text-ink placeholder-zinc-500 focus:outline-none focus:border-gold transition-colors rounded-xl"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-xs uppercase tracking-[0.16em] font-semibold text-zinc-300">
+                      <label className="block text-xs uppercase tracking-brand font-semibold text-zinc-300">
                         Professional Title & Role
                       </label>
                       <input
@@ -185,14 +183,14 @@ export default function BookingSection() {
                         placeholder="e.g. Chief Information Security Officer"
                         value={formData.title}
                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                        className="w-full bg-[#0A1E35] border border-white/10 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#C6A98A] transition-colors"
+                        className="w-full bg-zinc-900 border border-hairline px-4 py-3 text-sm text-ink placeholder-zinc-500 focus:outline-none focus:border-gold transition-colors rounded-xl"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="block text-xs uppercase tracking-[0.16em] font-semibold text-zinc-300">
+                      <label className="block text-xs uppercase tracking-brand font-semibold text-zinc-300">
                         Organization / Entity *
                       </label>
                       <input
@@ -201,12 +199,12 @@ export default function BookingSection() {
                         placeholder="e.g. Financial Services Corp / University"
                         value={formData.organization}
                         onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                        className="w-full bg-[#0A1E35] border border-white/10 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#C6A98A] transition-colors"
+                        className="w-full bg-zinc-900 border border-hairline px-4 py-3 text-sm text-ink placeholder-zinc-500 focus:outline-none focus:border-gold transition-colors rounded-xl"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-xs uppercase tracking-[0.16em] font-semibold text-zinc-300">
+                      <label className="block text-xs uppercase tracking-brand font-semibold text-zinc-300">
                         Official Work Email *
                       </label>
                       <input
@@ -215,20 +213,20 @@ export default function BookingSection() {
                         placeholder="name@organization.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-[#0A1E35] border border-white/10 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#C6A98A] transition-colors"
+                        className="w-full bg-zinc-900 border border-hairline px-4 py-3 text-sm text-ink placeholder-zinc-500 focus:outline-none focus:border-gold transition-colors rounded-xl"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="block text-xs uppercase tracking-[0.16em] font-semibold text-zinc-300">
+                      <label className="block text-xs uppercase tracking-brand font-semibold text-zinc-300">
                         Nature of Inquiry *
                       </label>
                       <select
                         value={formData.inquiryType}
                         onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-                        className="w-full bg-[#0A1E35] border border-white/10 px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C6A98A] transition-colors"
+                        className="w-full bg-zinc-900 border border-hairline px-4 py-3 text-sm text-ink focus:outline-none focus:border-gold transition-colors rounded-xl"
                       >
                         <option value="Conference Keynote Address">Conference Keynote Address</option>
                         <option value="Board / Executive Security Advisory">Board / Executive Security Advisory</option>
@@ -240,7 +238,7 @@ export default function BookingSection() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-xs uppercase tracking-[0.16em] font-semibold text-zinc-300">
+                      <label className="block text-xs uppercase tracking-brand font-semibold text-zinc-300">
                         Proposed Timeline / Event Date
                       </label>
                       <input
@@ -248,13 +246,13 @@ export default function BookingSection() {
                         placeholder="e.g. Q3 2026 / October 15, 2026"
                         value={formData.timeline}
                         onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                        className="w-full bg-[#0A1E35] border border-white/10 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#C6A98A] transition-colors"
+                        className="w-full bg-zinc-900 border border-hairline px-4 py-3 text-sm text-ink placeholder-zinc-500 focus:outline-none focus:border-gold transition-colors rounded-xl"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs uppercase tracking-[0.16em] font-semibold text-zinc-300">
+                    <label className="block text-xs uppercase tracking-brand font-semibold text-zinc-300">
                       Scope, Audience & Strategic Objectives *
                     </label>
                     <textarea
@@ -263,14 +261,14 @@ export default function BookingSection() {
                       placeholder="Please outline the strategic context, expected audience size, themes, or specific advisory scope..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full bg-[#0A1E35] border border-white/10 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#C6A98A] transition-colors resize-none"
+                      className="w-full bg-zinc-900 border border-hairline px-4 py-3 text-sm text-ink placeholder-zinc-500 focus:outline-none focus:border-gold transition-colors resize-none rounded-xl"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-4 bg-[#C6A98A] text-[#0A1E35] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#DAC8B3] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-[0_0_25px_rgba(198,169,138,0.3)] disabled:opacity-50"
+                    className="w-full py-4 bg-gold text-on-gold font-semibold text-xs uppercase tracking-brand hover:bg-gold-bright transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-[0_0_25px_rgba(198,169,138,0.3)] disabled:opacity-50"
                   >
                     {loading ? (
                       <span>Transmitting Request...</span>

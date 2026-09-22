@@ -16,10 +16,10 @@ export default function Toast({ open, message, onClose, duration = 3000 }) {
     <div
       role="status"
       aria-live="polite"
-      className="toast-enter fixed bottom-6 left-6 z-[60] flex items-center gap-3 pl-4 pr-3 py-3.5 bg-[#0A1A2D] border border-[#C6A98A]/40 shadow-[0_18px_50px_-12px_rgba(0,0,0,0.9)] max-w-[calc(100vw-3rem)] sm:max-w-sm"
+      className="toast-enter fixed bottom-6 left-6 z-[60] flex items-center gap-3 pl-4 pr-3 py-3.5 bg-zinc-950 border border-gold/40 shadow-[0_18px_50px_-12px_rgba(0,0,0,0.9)] max-w-[calc(100vw-3rem)] sm:max-w-sm rounded-[1.25rem]"
     >
-      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#C6A98A]/15 border border-[#C6A98A]/40 flex items-center justify-center">
-        <Check className="w-4 h-4 text-[#C6A98A]" />
+      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gold/15 border border-gold/40 flex items-center justify-center">
+        <Check className="w-4 h-4 text-gold" />
       </span>
 
       <p className="text-sm text-zinc-100 font-medium leading-snug">{message}</p>
@@ -28,13 +28,13 @@ export default function Toast({ open, message, onClose, duration = 3000 }) {
         type="button"
         onClick={onClose}
         aria-label="Dismiss notification"
-        className="flex-shrink-0 p-1 text-zinc-500 hover:text-white transition-colors cursor-pointer"
+        className="flex-shrink-0 p-1 text-zinc-500 hover:text-ink transition-colors cursor-pointer"
       >
         <X className="w-4 h-4" />
       </button>
 
       <span
-        className="absolute bottom-0 left-0 h-0.5 bg-[#C6A98A]/70 slide-progress"
+        className="absolute bottom-0 left-0 h-0.5 bg-gold/70 slide-progress"
         style={{ "--slide-duration": `${duration}ms`, width: "100%" }}
       />
     </div>
