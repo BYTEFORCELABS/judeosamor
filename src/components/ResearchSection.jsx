@@ -3,9 +3,19 @@ import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import PublicationCard from "@/components/PublicationCard";
-import { publications, scholarMetrics, SCHOLAR_RETRIEVED } from "@/lib/publications";
+import {
+  getPublications,
+  getScholarMetrics,
+  getScholarRetrieved,
+  getScholarUrl,
+} from "@/lib/publicationsData";
 
 export default function ResearchSection() {
+  const publications = getPublications();
+  const scholarMetrics = getScholarMetrics();
+  const scholarRetrieved = getScholarRetrieved();
+  const scholarUrl = getScholarUrl();
+
   // The homepage shows his three most-cited *security* papers. The earlier
   // materials-science work is real and well cited, but leading a cyber page
   // with tissue scaffolds misrepresents what he does; it keeps its place on
@@ -59,14 +69,14 @@ export default function ResearchSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featured.map((pub, idx) => (
             <Reveal key={pub.id} variant="up" delay={idx * 80}>
-              <PublicationCard publication={pub} />
+              <PublicationCard publication={pub} scholarUrl={scholarUrl} />
             </Reveal>
           ))}
         </div>
 
         <Reveal variant="up" className="flex flex-wrap items-center justify-between gap-4 pt-2">
           <p className="text-xs text-zinc-500">
-            Figures from Google Scholar, {SCHOLAR_RETRIEVED}.
+            Figures from Google Scholar, {scholarRetrieved}.
           </p>
           <Link
             href="/research"

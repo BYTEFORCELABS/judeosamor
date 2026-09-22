@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { SCHOLAR_URL, AUTHOR_SURNAME } from "@/lib/publications";
+import { AUTHOR_SURNAME } from "@/lib/publications";
 
 /**
  * Renders the byline with his own name picked out, so a reader can see his
@@ -22,7 +22,7 @@ function Byline({ authors }) {
   );
 }
 
-export default function PublicationCard({ publication }) {
+export default function PublicationCard({ publication, scholarUrl }) {
   const { title, authors, venue, volume, year, citations, area, summary } = publication;
 
   return (
@@ -50,15 +50,17 @@ export default function PublicationCard({ publication }) {
 
         <p className="text-sm text-zinc-300 leading-relaxed flex-1">{summary}</p>
 
-        <a
-          href={SCHOLAR_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="type-label inline-flex items-center gap-1.5 text-gold hover:text-ink transition-colors pt-1"
-        >
-          View on Scholar
-          <ArrowUpRight className="w-3.5 h-3.5" />
-        </a>
+        {scholarUrl && (
+          <a
+            href={scholarUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="type-label inline-flex items-center gap-1.5 text-gold hover:text-ink transition-colors pt-1"
+          >
+            View on Scholar
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+        )}
       </div>
     </article>
   );

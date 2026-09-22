@@ -2,16 +2,35 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import ResearchExplorer from "@/components/ResearchExplorer";
-import { scholarMetrics } from "@/lib/publications";
+import { researchAreas } from "@/lib/publications";
+import {
+  getPublications,
+  getScholarMetrics,
+  getScholarRetrieved,
+  getScholarUrl,
+} from "@/lib/publicationsData";
 
-export const metadata = {
-  title: "Research & Publications | Dr. Jude Osamor",
-  description:
-    `Peer-reviewed research by Dr. Jude Osamor — ${scholarMetrics[0].value} citations across machine learning for malware detection, financial fraud detection, and vehicular network security.`,
-  alternates: { canonical: "/research" },
-};
+// Publications are edited live from the admin portal, so this page can't
+// be statically prerendered — it has to read data/publications.json fresh
+// on every request.
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata() {
+  const scholarMetrics = getScholarMetrics();
+  return {
+    title: "Research & Publications | Dr. Jude Osamor",
+    description:
+      `Peer-reviewed research by Dr. Jude Osamor — ${scholarMetrics[0].value} citations across machine learning for malware detection, financial fraud detection, and vehicular network security.`,
+    alternates: { canonical: "/research" },
+  };
+}
 
 export default function ResearchPage() {
+  const publications = getPublications();
+  const scholarMetrics = getScholarMetrics();
+  const scholarRetrieved = getScholarRetrieved();
+  const scholarUrl = getScholarUrl();
+
   return (
     <div className="flex flex-col min-h-screen bg-black text-ink">
       <Navbar />
@@ -46,7 +65,13 @@ export default function ResearchPage() {
               </Reveal>
             </div>
 
-            <ResearchExplorer />
+            <ResearchExplorer
+              publications={publications}
+              scholarMetrics={scholarMetrics}
+              scholarRetrieved={scholarRetrieved}
+              scholarUrl={scholarUrl}
+              researchAreas={researchAreas}
+            />
           </div>
         </section>
       </main>

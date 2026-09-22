@@ -2,12 +2,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
-import { appearances } from "@/lib/media";
+import { getAppearances } from "@/lib/media";
 
 export default function MediaSpeakingSection() {
   // Both recorded talks play in place here; the rest of the material,
   // including engagements with no recording, lives on /media.
-  const watchable = appearances.filter((a) => a.videoId);
+  const watchable = getAppearances().filter((a) => a.videoId);
 
   return (
     <section

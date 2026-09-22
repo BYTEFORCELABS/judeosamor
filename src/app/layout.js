@@ -47,10 +47,10 @@ export const metadata = {
     siteName: "Dr. Jude Osamor",
     images: [
       {
-        url: "/images/logo.png",
-        width: 1981,
-        height: 583,
-        alt: "Dr. Jude Osamor — Brand Identity",
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dr. Jude Osamor — VP of Cybersecurity, Academic Researcher, Co-Founder of CyBlack",
       },
     ],
     locale: "en_GB",
@@ -61,7 +61,7 @@ export const metadata = {
     title: "Dr. Jude Osamor | Executive Cybersecurity & Research",
     description:
       "VP of Cybersecurity, Academic Researcher (PhD), and Co-Founder of CyBlack.",
-    images: ["/images/logo.png"],
+    images: ["/images/og-image.jpg"],
   },
 };
 

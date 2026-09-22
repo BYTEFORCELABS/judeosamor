@@ -545,13 +545,13 @@ code, kbd, samp, pre, .font-mono {
 /* click while it fades.                                        */
 /* ============================================================ */
 @keyframes splashOut {
-  0%, 42% { opacity: 1; }
+  0%, 88% { opacity: 1; }
   100% { opacity: 0; visibility: hidden; }
 }
 
 @keyframes splashMark {
   0% { opacity: 0; transform: scale(0.92); }
-  45% { opacity: 1; transform: scale(1); }
+  18% { opacity: 1; transform: scale(1); }
   100% { opacity: 1; transform: scale(1); }
 }
 
@@ -563,11 +563,11 @@ code, kbd, samp, pre, .font-mono {
   place-items: center;
   background: var(--color-black);
   pointer-events: none;
-  animation: splashOut 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: splashOut 3.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .splash-mark {
-  animation: splashMark 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: splashMark 3.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* Seen once already this session, or motion is unwelcome: skip it. */

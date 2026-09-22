@@ -5,26 +5,27 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import PublicationCard from "@/components/PublicationCard";
-import {
+
+export default function ResearchExplorer({
   publications,
   researchAreas,
   scholarMetrics,
-  SCHOLAR_URL,
-  SCHOLAR_RETRIEVED,
-} from "@/lib/publications";
-
-export default function ResearchExplorer() {
+  scholarUrl,
+  scholarRetrieved,
+}) {
   const [area, setArea] = useState("all");
 
   const shown = useMemo(
     () => (area === "all" ? publications : publications.filter((p) => p.area === area)),
-    [area]
+    [area, publications]
   );
 
   // Only offer a filter that would actually return something.
   const areas = researchAreas.filter(
     (a) => a.id === "all" || publications.some((p) => p.area === a.id)
   );
+
+  const i10 = scholarMetrics.find((m) => m.label.toLowerCase().includes("i10"));
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
@@ -65,12 +66,11 @@ export default function ResearchExplorer() {
 
         <div className="space-y-4 pt-8 border-t border-hairline">
           <p className="text-xs text-zinc-500 leading-relaxed">
-            Figures from Google Scholar, {SCHOLAR_RETRIEVED}. This page shows his
-            most-cited work; an i10-index of {scholarMetrics[2].value} means at
-            least that many papers have ten or more citations.
+            Figures from Google Scholar, {scholarRetrieved}.
+            {i10 && ` This page shows his most-cited work; an i10-index of ${i10.value} means at least that many papers have ten or more citations.`}
           </p>
           <a
-            href={SCHOLAR_URL}
+            href={scholarUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="gold-button-outline type-label inline-flex items-center gap-2 px-5 py-3"
@@ -85,7 +85,7 @@ export default function ResearchExplorer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {shown.map((pub, idx) => (
             <Reveal key={pub.id} variant="up" delay={idx * 80}>
-              <PublicationCard publication={pub} />
+              <PublicationCard publication={pub} scholarUrl={scholarUrl} />
             </Reveal>
           ))}
         </div>

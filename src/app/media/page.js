@@ -4,7 +4,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
-import { appearances, speakingTopics } from "@/lib/media";
+import { getAppearances, getSpeakingTopics } from "@/lib/media";
+
+// Appearances and topics are edited live from the admin portal, so this page
+// can't be statically prerendered — it has to read data/media.json fresh on
+// every request.
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Talks & Media | Dr. Jude Osamor",
@@ -14,6 +19,8 @@ export const metadata = {
 };
 
 export default function MediaPage() {
+  const appearances = getAppearances();
+  const speakingTopics = getSpeakingTopics();
   const withVideo = appearances.filter((a) => a.videoId);
   const withoutVideo = appearances.filter((a) => !a.videoId);
 
