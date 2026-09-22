@@ -81,12 +81,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#research" className="hover:text-gold transition-colors">
+                <Link href="/research" className="hover:text-gold transition-colors">
                   Research & Publications
                 </Link>
               </li>
               <li>
-                <Link href="/#media" className="hover:text-gold transition-colors">
+                <Link href="/media" className="hover:text-gold transition-colors">
                   Media & Keynotes
                 </Link>
               </li>

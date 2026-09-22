@@ -311,6 +311,34 @@ code, kbd, samp, pre, .font-mono {
   opacity: 0.55;
 }
 
+/* Melts the base of a portrait into the page. This works on the dark theme,
+   where a warm photograph meets a navy page. On the light theme the page is
+   cream and the backdrop is beige, so the identical fade just dissolves the
+   subject into milk — there the photograph stays a defined card instead. */
+.photo-fade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 42%;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--color-black) 0%, rgba(7, 19, 34, 0.55) 45%, transparent 100%);
+}
+
+[data-theme="light"] .photo-fade {
+  display: none;
+}
+
+/* A caption printed on the photograph needs its backing to stay dark in both
+   themes, or the light theme leaves pale text on a pale scrim. Pair this with
+   data-theme="dark" on the caption so its text stays light too. */
+.photo-scrim {
+  background: linear-gradient(
+    to top,
+    rgba(7, 19, 34, 0.96) 0%,
+    rgba(7, 19, 34, 0.78) 45%,
+    transparent 100%
+  );
+}
+
 /* Every bordered panel, tile and framed image shares one radius so the page
    reads as one system rather than a pile of differently-cornered boxes. */
 .card {
@@ -350,6 +378,62 @@ code, kbd, samp, pre, .font-mono {
     var(--bg-surface) 0%,
     var(--color-black) 70%
   );
+}
+
+/* ============================================================ */
+/* PUBLICATION COVERS                                           */
+/* A paper has no photograph, and a stock image beside real     */
+/* research would be decoration pretending to be evidence. The  */
+/* cover is built from the paper's own facts instead: how often */
+/* it has been cited, where, and when. The research area only   */
+/* shifts the angle and weight of the beige, so six cards read  */
+/* as one family rather than six different posters.             */
+/* ============================================================ */
+.paper-cover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 9.5rem;
+  padding: 1.25rem 1.5rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold-primary) 55%, var(--gold-bright) 100%);
+  color: #0A1E35;
+}
+
+.paper-cover[data-area="ai"] {
+  background: linear-gradient(120deg, var(--gold-deep) 0%, var(--gold-primary) 70%);
+}
+
+.paper-cover[data-area="fraud"] {
+  background: linear-gradient(155deg, var(--gold-primary) 0%, var(--gold-bright) 100%);
+}
+
+.paper-cover[data-area="iot"] {
+  background: linear-gradient(100deg, var(--gold-deep) 0%, var(--gold-bright) 115%);
+}
+
+/* The outlier: earlier materials-science work, deliberately cooler so it
+   reads as a different chapter without being hidden. */
+.paper-cover[data-area="materials"] {
+  background: linear-gradient(135deg, var(--color-zinc-700) 0%, var(--gold-deep) 130%);
+  color: var(--color-zinc-50);
+}
+
+.paper-cover-figure {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: var(--track-display);
+  font-variant-numeric: tabular-nums;
+}
+
+.paper-cover-venue {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
 }
 
 /* One hover gesture for every card on the page: a small lift and a warmer
@@ -453,13 +537,68 @@ code, kbd, samp, pre, .font-mono {
 /* Deliberately sparse. A calm executive page earns attention   */
 /* with type and spacing, not with competing animation.         */
 /* ============================================================ */
-@keyframes mobileDrawerOpen {
-  0% { opacity: 0; transform: translateY(-8px) scale(0.99); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+/* ============================================================ */
+/* SPLASH                                                       */
+/* The monogram holds for a beat, then clears itself. Driven    */
+/* entirely by CSS so a failed script can never leave it stuck  */
+/* over the page, and pointer-transparent so it cannot eat a    */
+/* click while it fades.                                        */
+/* ============================================================ */
+@keyframes splashOut {
+  0%, 42% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
 }
 
-.animate-mobile-drawer {
-  animation: mobileDrawerOpen 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+@keyframes splashMark {
+  0% { opacity: 0; transform: scale(0.92); }
+  45% { opacity: 1; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--color-black);
+  pointer-events: none;
+  animation: splashOut 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.splash-mark {
+  animation: splashMark 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Seen once already this session, or motion is unwelcome: skip it. */
+html.splash-seen .splash {
+  display: none;
+}
+
+/* ============================================================ */
+/* FULL-SCREEN MENU                                             */
+/* The panel wipes up over the page, then the links arrive one  */
+/* after another. Staggering them is what makes it feel opened  */
+/* rather than simply switched on.                              */
+/* ============================================================ */
+@keyframes menuOverlayIn {
+  0% { opacity: 0; clip-path: inset(0 0 100% 0); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+.menu-overlay {
+  animation: menuOverlayIn 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes menuItemIn {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.menu-item {
+  opacity: 0;
+  animation: menuItemIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--menu-delay, 0ms);
 }
 
 @keyframes toastIn {
@@ -533,9 +672,22 @@ code, kbd, samp, pre, .font-mono {
 
   .toast-enter,
   .animate-scroll-cue,
-  .animate-mobile-drawer,
   .slide-progress {
     animation: none !important;
+  }
+
+  /* No opening animation at all: skip the splash rather than fade it. */
+  .splash {
+    display: none;
+  }
+
+  /* The menu still appears instantly; it just stops sliding into place. */
+  .menu-overlay,
+  .menu-item {
+    animation: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
   }
 
   /* Cards still warm their edge on hover; they just stop moving. */

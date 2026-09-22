@@ -1,5 +1,6 @@
 import "./globals.css";
 import localFont from "next/font/local";
+import SplashScreen from "@/components/SplashScreen";
 
 /**
  * Futura is the brand face (see "Dr. Jude Osamor - Brand Identity Guidelines").
@@ -64,9 +65,11 @@ export const metadata = {
   },
 };
 
-// Applies the saved theme before first paint so the page never flashes the
-// wrong palette. Dark is the brand default; light is opt-in.
-const themeScript = `(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}})()`;
+// Runs before first paint so the page never flashes the wrong palette, and
+// so the splash is marked as seen before it has a chance to animate.
+// Dark is the brand default; light is opt-in. The splash plays once per
+// session — a welcome the first time, an obstacle every time after.
+const bootScript = `(function(){var d=document.documentElement;try{d.setAttribute("data-theme",localStorage.getItem("theme")==="light"?"light":"dark")}catch(e){d.setAttribute("data-theme","dark")}try{if(sessionStorage.getItem("splash")){d.classList.add("splash-seen")}else{sessionStorage.setItem("splash","1")}}catch(e){}})()`;
 
 export default function RootLayout({ children }) {
   return (
@@ -77,9 +80,10 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
       <body className="bg-black text-ink min-h-screen flex flex-col selection:bg-gold selection:text-on-gold antialiased">
+        <SplashScreen />
         {children}
       </body>
     </html>

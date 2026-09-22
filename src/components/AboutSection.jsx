@@ -33,7 +33,7 @@ export default function AboutSection() {
   const milestones = [
     {
       role: "Vice President of Cybersecurity",
-      org: "Fortune 500 Financial Institution",
+      org: "Barclays",
       period: "Present",
       detail: "Leading cyber defense operations, cloud security resilience, and institutional threat management.",
     },
@@ -90,7 +90,6 @@ export default function AboutSection() {
           <Reveal variant="left" className="lg:col-span-5">
             <div className="relative group max-w-md mx-auto lg:mx-0">
               {/* Outer offset gold border */}
-              <div className="absolute -inset-3 border border-gold/35 translate-x-2.5 translate-y-2.5 transition-transform duration-700 pointer-events-none rounded-[1.25rem]" />
               
               <div className="relative bg-black border border-hairline shadow-2xl overflow-hidden rounded-[1.25rem]">
                 {/* Executive Portrait */}
@@ -105,7 +104,7 @@ export default function AboutSection() {
                   {/* Same treatment as the hero portrait: warm the cold studio
                       backdrop onto the brand beige, then fade into the panel. */}
                   <div className="photo-tint photo-tint-soft" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" />
+                  <div className="photo-fade" />
                 </div>
 
                 <div className="p-7 space-y-5 bg-black">
@@ -155,7 +154,7 @@ export default function AboutSection() {
             </Reveal>
 
             <Reveal as="p" variant="up" delay={100}>
-              As <strong className="text-ink font-semibold">Vice President of Cybersecurity</strong> within Fortune 500 financial institutions, 
+              As <strong className="text-ink font-semibold">Vice President of Cybersecurity</strong> at Barclays, 
               he steers high-consequence security architecture, incident response, and cyber defenses against automated threat actors. 
               His leadership ensures that mission-critical digital infrastructure withstands sophisticated nation-state and cybercriminal campaigns.
             </Reveal>

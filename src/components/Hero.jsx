@@ -45,36 +45,41 @@ export default function Hero() {
               delay={220}
               className="type-body text-base sm:text-lg text-zinc-300 max-w-xl mt-8"
             >
-              He directs enterprise cyber defence for a Fortune 500 financial services
-              firm, researches how machine learning detects malicious anomalies and
+              He directs enterprise cyber defence at Barclays, researches how machine learning detects malicious anomalies and
               phishing at scale, and co-founded CyBlack to open cyber careers to Black
               professionals across the UK.
             </Reveal>
 
-            <Reveal variant="up" delay={280} className="flex flex-wrap items-center gap-3 mt-10">
+            {/* Side by side at every width. On a phone the labels shorten
+                rather than the buttons stacking or the type shrinking to
+                something unreadable. */}
+            <Reveal variant="up" delay={280} className="flex items-stretch gap-3 mt-10">
               <Link
-                href="/#research"
-                className="gold-button inline-flex items-center gap-2.5 px-7 py-3.5 text-xs"
+                href="/research"
+                className="gold-button flex flex-1 sm:flex-initial items-center justify-center gap-2 px-4 sm:px-7 py-3.5 text-[11px] sm:text-xs whitespace-nowrap"
               >
-                <span>Explore Research</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="sm:hidden">Research</span>
+                <span className="hidden sm:inline">Explore Research</span>
+                <ArrowRight className="w-4 h-4 flex-shrink-0" />
               </Link>
 
               <Link
                 href="/#advisory"
-                className="gold-button-outline inline-flex items-center px-7 py-3.5 text-xs"
+                className="gold-button-outline flex flex-1 sm:flex-initial items-center justify-center px-4 sm:px-7 py-3.5 text-[11px] sm:text-xs whitespace-nowrap"
               >
-                Speaking &amp; Advisory
+                <span className="sm:hidden">Advisory</span>
+                <span className="hidden sm:inline">Speaking &amp; Advisory</span>
               </Link>
             </Reveal>
           </div>
 
           {/* Portrait. The studio backdrop is a cold near-white, so it is warmed
-              toward the brand beige and its base is melted into the page rather
-              than left as a bright rectangle floating on the navy. */}
+              toward the brand beige. On the dark theme its base melts into the
+              page; on the light theme it stays a defined card, which is what
+              the hairline border is for. */}
           <div className="lg:col-span-5">
             <Reveal variant="fade" delay={300} className="relative mx-auto w-full max-w-sm lg:max-w-none">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-zinc-900">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-zinc-900 border border-hairline">
                 <Image
                   src="/images/jude_osamor_navy_standing.jpg"
                   alt="Dr. Jude Osamor"
@@ -86,7 +91,7 @@ export default function Hero() {
                 {/* Multiply leaves the dark suit almost untouched while pulling the
                     cold white backdrop onto the brand beige. */}
                 <div className="photo-tint photo-tint-soft" />
-                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
+                <div className="photo-fade" />
               </div>
             </Reveal>
           </div>

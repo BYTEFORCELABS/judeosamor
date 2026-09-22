@@ -88,12 +88,13 @@ export default function CyBlackSection() {
         <Reveal variant="up">
           <div className="bg-zinc-900/70 border border-gold/25 p-8 sm:p-12 relative backdrop-blur-xl rounded-[1.25rem]">
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* items-stretch, so the portrait runs the full height of the
+                copy beside it and both columns finish on the same line. */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
               {/* Leader Portrait */}
               <div className="lg:col-span-5">
-                <div className="relative group max-w-md mx-auto lg:max-w-none">
-                  <div className="absolute -inset-2 border border-gold/30 translate-x-2 translate-y-2 pointer-events-none rounded-[1.25rem]" />
-                  <div className="relative aspect-[4/5] overflow-hidden bg-black border border-hairline shadow-2xl rounded-[1.25rem]">
+                <div className="relative group h-full max-w-md mx-auto lg:max-w-none">
+                  <div className="relative h-full aspect-[4/5] lg:aspect-auto lg:min-h-[32rem] overflow-hidden bg-black border border-hairline shadow-2xl rounded-[1.25rem]">
                     <Image
                       src="/images/jude_osamor_beige_profile.jpg"
                       alt="Dr. Jude Osamor - Co-Founder of CyBlack"
@@ -106,9 +107,10 @@ export default function CyBlackSection() {
                         beige — a duotone reads as deliberate where the raw colour
                         read as an accident. */}
                     <div className="photo-tint" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-transparent pointer-events-none" />
                     
-                    <div className="absolute bottom-3 left-3 right-3 p-3 bg-zinc-900/95 border border-gold/40 backdrop-blur-md rounded-[1.25rem]">
+                    {/* A caption on the photograph, not a card of its own —
+                        it sits inside a bordered frame already. */}
+                    <div data-theme="dark" className="photo-scrim absolute bottom-0 inset-x-0 p-5 pt-12">
                       <p className="text-[10px] uppercase tracking-brand text-gold font-semibold">
                         Strategic Co-Founder
                       </p>
