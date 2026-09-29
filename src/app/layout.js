@@ -25,12 +25,13 @@ export const metadata = {
   metadataBase: new URL("https://judeosamor.com"),
   title: "Dr. Jude Osamor | VP of Cybersecurity, Academic Researcher & CyBlack Co-Founder",
   description:
-    "Official website and executive portfolio of Dr. Jude Osamor — Vice President of Cybersecurity at a Fortune 500 institution, Senior Lecturer in Cyber Security & Digital Forensics, and Co-Founder of CyBlack. Specializing in AI-driven threat mitigation, digital forensics, enterprise cyber defense, and data sovereignty.",
+    "Official website and executive portfolio of Dr. Jude Osamor — Vice President of Cybersecurity at a Fortune 500 institution, Senior Lecturer in Cyber Security & Digital Forensics, and Co-Founder of the non-profit CyBlack. Specializing in AI-driven threat mitigation, digital forensics, enterprise cyber defense, and data sovereignty.",
   keywords: [
     "Dr. Jude Osamor",
     "Jude Osamor",
     "Vice President Cybersecurity",
     "CyBlack Co-Founder",
+    "CyBlack Non-Profit",
     "Cybersecurity Researcher",
     "Senior Lecturer Cyber Security",
     "University of Westminster",
@@ -53,7 +54,7 @@ export const metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Dr. Jude Osamor — VP of Cybersecurity, Academic Researcher, Co-Founder of CyBlack",
+        alt: "Dr. Jude Osamor — VP of Cybersecurity, Academic Researcher, Co-Founder of the non-profit CyBlack",
       },
     ],
     locale: "en_GB",
@@ -63,7 +64,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Dr. Jude Osamor | Executive Cybersecurity & Research",
     description:
-      "VP of Cybersecurity, Academic Researcher (PhD), and Co-Founder of CyBlack.",
+      "VP of Cybersecurity, Academic Researcher (PhD), and Co-Founder of the non-profit CyBlack.",
     images: ["/images/og-image.jpg"],
   },
 };

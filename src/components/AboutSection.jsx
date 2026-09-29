@@ -24,9 +24,9 @@ export default function AboutSection() {
     {
       icon: HeartHandshake,
       title: "Ethical Stewardship & Inclusion",
-      tagline: "CO-FOUNDER OF CYBLACK",
+      tagline: "CO-FOUNDER OF CYBLACK (NON-PROFIT)",
       description:
-        "Championing talent equity, public cyber education, and mentorship. As co-founder of CyBlack, opening durable professional pathways for Black professionals in the UK cybersecurity industry.",
+        "Championing talent equity, public cyber education, and mentorship. As co-founder of the non-profit CyBlack, opening durable professional pathways for Black professionals in the UK cybersecurity industry.",
     },
   ];
 

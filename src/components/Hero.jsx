@@ -47,7 +47,7 @@ export default function Hero() {
             >
               He directs enterprise cyber defence at a Fortune 500 financial institution, lectures in cyber security and
               digital forensics, researches how machine learning detects malicious anomalies and phishing at scale, and
-              co-founded CyBlack to open cyber careers to Black professionals across the UK.
+              co-founded the non-profit CyBlack to open cyber careers to Black professionals across the UK.
             </Reveal>
 
             {/* Side by side at every width. On a phone the labels shorten

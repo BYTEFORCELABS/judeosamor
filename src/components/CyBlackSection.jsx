@@ -61,6 +61,7 @@ export default function CyBlackSection() {
 
             <Reveal as="h2" variant="wipe" className="font-display text-3xl sm:text-5xl lg:text-6xl text-ink font-bold tracking-tight">
               Co-Founder of <span className="text-gold">CyBlack</span>
+              <span className="block text-base sm:text-lg font-light text-zinc-400 tracking-normal mt-2">A UK non-profit for cyber talent equity</span>
             </Reveal>
 
             <Reveal as="p" variant="up" delay={120} className="text-zinc-300 text-base sm:text-lg max-w-2xl font-normal leading-relaxed">
@@ -138,8 +139,8 @@ export default function CyBlackSection() {
 
                   <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
                     Conceived out of a clear recognition that systemic diversity deficits in cybersecurity weaken overall institutional defense, 
-                    Dr. Jude Osamor co-founded CyBlack to institutionalize support mechanisms. From mentorship exchanges on social platforms to a formal 
-                    national charity, CyBlack provides educational grants, high-impact conferences, and direct employer hiring pipelines.
+                    Dr. Jude Osamor co-founded CyBlack to institutionalize support mechanisms. From mentorship exchanges on social platforms to a formally 
+                    constituted non-profit, CyBlack provides educational grants, high-impact conferences, and direct employer hiring pipelines.
                   </p>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-4 border-t border-hairline">

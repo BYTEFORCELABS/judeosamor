@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Reveal from "@/components/Reveal";
-import { Mail, Calendar, MapPin, Send, CheckCircle2, ShieldCheck, ArrowRight, Clock, Building2 } from "lucide-react";
+import { Mail, Calendar, MapPin, Send, CheckCircle2, ShieldCheck, ArrowRight, Clock } from "lucide-react";
 
 export default function BookingSection() {
   const [formData, setFormData] = useState({
@@ -75,7 +75,7 @@ export default function BookingSection() {
                   Institutional Inquiries
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed">
-                  For formal keynote requests, enterprise security reviews, and corporate CyBlack sponsorships.
+                  For formal keynote requests, enterprise security reviews, and executive advisory engagements.
                 </p>
               </div>
 
@@ -86,16 +86,6 @@ export default function BookingSection() {
                     <p className="text-[11px] uppercase tracking-wider text-zinc-400">Advisory Inquiries</p>
                     <a href="mailto:contact@judeosamor.com" className="text-ink hover:text-gold transition-colors font-medium">
                       contact@judeosamor.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5 p-3.5 bg-zinc-900/60 border border-hairline rounded-[1.25rem]">
-                  <Building2 className="w-4 h-4 text-gold mt-1 shrink-0" />
-                  <div>
-                    <p className="text-[11px] uppercase tracking-wider text-zinc-400">CyBlack Non-Profit Partnerships</p>
-                    <a href="mailto:partnerships@cyblack.org" className="text-ink hover:text-gold transition-colors font-medium">
-                      partnerships@cyblack.org
                     </a>
                   </div>
                 </div>
@@ -233,7 +223,6 @@ export default function BookingSection() {
                         <option value="Corporate Cyber Resilience Workshop">Corporate Cyber Resilience Workshop</option>
                         <option value="Academic Lecture / Guest Faculty">Academic Lecture / Guest Faculty</option>
                         <option value="Media Commentary / Panel Discussion">Media Commentary / Panel Discussion</option>
-                        <option value="CyBlack Non-Profit Partnership">CyBlack Non-Profit Partnership</option>
                       </select>
                     </div>
 

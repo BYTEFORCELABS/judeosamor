@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { LinkedInIcon, ResearchGateIcon, XTwitterIcon, YouTubeIcon } from "@/components/SocialIcons";
-import { Mail, MapPin, ExternalLink, ShieldCheck } from "lucide-react";
+import { Mail, MapPin, ExternalLink } from "lucide-react";
 
 export default function Footer() {
   const socialLinks = [
@@ -109,14 +109,6 @@ export default function Footer() {
                 <Mail className="w-3.5 h-3.5 text-gold" />
                 <a href="mailto:contact@judeosamor.com" className="hover:text-gold transition-colors">
                   contact@judeosamor.com
-                </a>
-              </div>
-
-              <div className="flex items-center gap-2.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-gold" />
-                <a href="https://cyblack.org" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors flex items-center gap-1.5">
-                  <span>CyBlack UK (cyblack.org)</span>
-                  <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
 
