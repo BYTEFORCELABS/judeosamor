@@ -25,13 +25,16 @@ export const metadata = {
   metadataBase: new URL("https://judeosamor.com"),
   title: "Dr. Jude Osamor | VP of Cybersecurity, Academic Researcher & CyBlack Co-Founder",
   description:
-    "Official website and executive portfolio of Dr. Jude Osamor — Vice President of Cybersecurity, Academic Researcher (PhD), and Co-Founder of CyBlack. Specializing in AI-driven threat mitigation, digital forensics, enterprise cyber defense, and data sovereignty.",
+    "Official website and executive portfolio of Dr. Jude Osamor — Vice President of Cybersecurity at a Fortune 500 institution, Senior Lecturer in Cyber Security & Digital Forensics, and Co-Founder of CyBlack. Specializing in AI-driven threat mitigation, digital forensics, enterprise cyber defense, and data sovereignty.",
   keywords: [
     "Dr. Jude Osamor",
     "Jude Osamor",
     "Vice President Cybersecurity",
     "CyBlack Co-Founder",
     "Cybersecurity Researcher",
+    "Senior Lecturer Cyber Security",
+    "University of Westminster",
+    "UWE Bristol",
     "Digital Forensics",
     "AI Threat Detection",
     "Enterprise Cyber Defense",

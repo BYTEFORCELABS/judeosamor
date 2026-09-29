@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Plus, Pencil, Trash2, X, Check } from "lucide-react";
 import { Field, TextInput, TextArea, Select } from "@/components/admin/Field";
+import Modal from "@/components/admin/Modal";
 import { researchAreas } from "@/lib/publications";
 
 const emptyPub = {
@@ -26,12 +27,12 @@ function PublicationForm({ initial, onCancel, onSave, saving }) {
         e.preventDefault();
         onSave(form);
       }}
-      className="space-y-4 border border-hairline p-6 bg-zinc-900/60"
+      className="space-y-4"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="sm:col-span-2">
           <Field label="Title">
-            <TextInput required value={form.title} onChange={set("title")} />
+            <TextInput required autoFocus value={form.title} onChange={set("title")} />
           </Field>
         </div>
         <Field label="Authors (comma-separated)">
@@ -289,57 +290,59 @@ export default function PublicationsPanel() {
         </div>
 
         {adding && (
-          <PublicationForm
-            initial={emptyPub}
-            saving={saving}
-            onCancel={() => setAdding(false)}
-            onSave={handleAdd}
-          />
+          <Modal title="Add Publication" onClose={() => setAdding(false)}>
+            <PublicationForm
+              initial={emptyPub}
+              saving={saving}
+              onCancel={() => setAdding(false)}
+              onSave={handleAdd}
+            />
+          </Modal>
+        )}
+
+        {editingId && (
+          <Modal title="Edit Publication" onClose={() => setEditingId(null)}>
+            <PublicationForm
+              initial={toFormShape(data.publications.find((p) => p.id === editingId))}
+              saving={saving}
+              onCancel={() => setEditingId(null)}
+              onSave={(form) => handleUpdate(editingId, form)}
+            />
+          </Modal>
         )}
 
         <ul className="border-t border-hairline">
-          {data.publications.map((pub) =>
-            editingId === pub.id ? (
-              <li key={pub.id} className="py-4 border-b border-hairline">
-                <PublicationForm
-                  initial={toFormShape(pub)}
-                  saving={saving}
-                  onCancel={() => setEditingId(null)}
-                  onSave={(form) => handleUpdate(pub.id, form)}
-                />
-              </li>
-            ) : (
-              <li
-                key={pub.id}
-                className="group flex items-start gap-4 py-4 border-b border-hairline"
+          {data.publications.map((pub) => (
+            <li
+              key={pub.id}
+              className="group flex items-start gap-4 py-4 border-b border-hairline"
+            >
+              <div className="flex-1 min-w-0 space-y-1">
+                <h3 className="text-sm font-medium text-ink">{pub.title}</h3>
+                <p className="text-xs text-zinc-500">
+                  {pub.year} · {pub.venue} · {pub.citations}{" "}
+                  {pub.citations === 1 ? "citation" : "citations"}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEditingId(pub.id)}
+                aria-label={`Edit ${pub.title}`}
+                className="flex-shrink-0 p-2 text-zinc-500 hover:text-gold transition-colors cursor-pointer"
               >
-                <div className="flex-1 min-w-0 space-y-1">
-                  <h3 className="text-sm font-medium text-ink">{pub.title}</h3>
-                  <p className="text-xs text-zinc-500">
-                    {pub.year} · {pub.venue} · {pub.citations}{" "}
-                    {pub.citations === 1 ? "citation" : "citations"}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setEditingId(pub.id)}
-                  aria-label={`Edit ${pub.title}`}
-                  className="flex-shrink-0 p-2 text-zinc-500 hover:text-gold transition-colors cursor-pointer"
-                >
-                  <Pencil className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleDelete(pub.id, pub.title)}
-                  aria-label={`Delete ${pub.title}`}
-                  className="flex-shrink-0 p-2 text-zinc-700 hover:text-red-400 transition-colors cursor-pointer"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </li>
-            )
-          )}
-          {data.publications.length === 0 && !adding && (
+                <Pencil className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => handleDelete(pub.id, pub.title)}
+                aria-label={`Delete ${pub.title}`}
+                className="flex-shrink-0 p-2 text-zinc-700 hover:text-red-400 transition-colors cursor-pointer"
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+            </li>
+          ))}
+          {data.publications.length === 0 && (
             <li className="py-16 text-center text-sm text-zinc-500">No publications yet.</li>
           )}
         </ul>

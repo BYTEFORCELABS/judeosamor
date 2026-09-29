@@ -33,7 +33,7 @@ export default function AboutSection() {
   const milestones = [
     {
       role: "Vice President of Cybersecurity",
-      org: "Barclays",
+      org: "Fortune 500 Financial Institution",
       period: "Present",
       detail: "Leading cyber defense operations, cloud security resilience, and institutional threat management.",
     },
@@ -44,16 +44,28 @@ export default function AboutSection() {
       detail: "Steering national mentorship cohorts, industry conferences, and technical security internships.",
     },
     {
-      role: "Senior Lecturer & Academic Researcher",
-      org: "UWE Bristol / Glasgow Caledonian / Westminster",
-      period: "Past & Ongoing",
-      detail: "Delivering advanced curricula in Digital Forensics, Network Security, and AI-assisted defense architectures.",
+      role: "Senior Lecturer in Cyber Security & Digital Forensics",
+      org: "University of the West of England (UWE Bristol)",
+      period: "Present",
+      detail: "Teaching and supervising within the Department of Computer Science and Creative Technologies, with research spanning digital forensics, malware analysis, and security operations.",
+    },
+    {
+      role: "Lecturer in Cyber Security & Digital Forensics",
+      org: "University of Westminster",
+      period: "2022 – 2024",
+      detail: "Delivered undergraduate and postgraduate teaching in digital forensics, network security, and incident response in the School of Computer Science and Engineering.",
+    },
+    {
+      role: "Lecturer & Academic Researcher",
+      org: "Glasgow Caledonian University",
+      period: "Past",
+      detail: "Advanced curricula in network security and AI-assisted defense architectures, alongside peer-reviewed research output.",
     },
     {
       role: "Doctor of Philosophy (PhD) & Computing (BSc 1st Class)",
       org: "Imperial College London & Edinburgh Napier University",
       period: "Academic Distinction",
-      detail: "Scholarly honors including MFM National First Class Honours recognition.",
+      detail: "PTDF Presidential Scholarship (top 1% of applicants), UNILAG Vice Chancellor’s Award, and UK Global Talent (Exceptional Talent) endorsement.",
     },
   ];
 
@@ -154,14 +166,15 @@ export default function AboutSection() {
             </Reveal>
 
             <Reveal as="p" variant="up" delay={100}>
-              As <strong className="text-ink font-semibold">Vice President of Cybersecurity</strong> at Barclays, 
+              As <strong className="text-ink font-semibold">Vice President of Cybersecurity</strong> at a Fortune 500 financial institution, 
               he steers high-consequence security architecture, incident response, and cyber defenses against automated threat actors. 
               His leadership ensures that mission-critical digital infrastructure withstands sophisticated nation-state and cybercriminal campaigns.
             </Reveal>
 
             <Reveal as="p" variant="up" delay={150}>
               Parallel to his corporate leadership, Dr. Osamor holds a <strong className="text-ink font-semibold">Doctor of Philosophy (PhD)</strong> and 
-              has served as Senior Lecturer at institutions including the University of the West of England (UWE Bristol) and Glasgow Caledonian University. 
+              lectures as <strong className="text-ink font-semibold">Senior Lecturer in Cyber Security &amp; Digital Forensics</strong> at the University of the West of England (UWE Bristol),
+              having previously taught cyber security and digital forensics at the <strong className="text-ink font-semibold">University of Westminster</strong> and Glasgow Caledonian University. 
               His peer-reviewed publications explore how artificial intelligence and temporal convolutional networks can detect malicious anomalies, prevent targeted phishing, and secure financial conduits.
             </Reveal>
 

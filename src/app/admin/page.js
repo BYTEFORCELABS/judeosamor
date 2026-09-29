@@ -2,16 +2,16 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { LogOut, ArrowLeft } from "lucide-react";
+import { LogOut, ArrowLeft, Mail, BookOpen, Video } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
 import SubscribersPanel from "@/components/admin/SubscribersPanel";
 import PublicationsPanel from "@/components/admin/PublicationsPanel";
 import MediaPanel from "@/components/admin/MediaPanel";
 
 const TABS = [
-  { id: "subscribers", label: "Subscribers" },
-  { id: "publications", label: "Publications" },
-  { id: "media", label: "Media" },
+  { id: "subscribers", label: "Subscribers", icon: Mail },
+  { id: "publications", label: "Publications", icon: BookOpen },
+  { id: "media", label: "Media", icon: Video },
 ];
 
 export default function AdminDashboardPage() {
@@ -121,45 +121,65 @@ export default function AdminDashboardPage() {
   // AUTHENTICATED: ADMIN CONSOLE
   // ============================================================
   return (
-    <div className="min-h-screen bg-black text-ink">
-      <header className="border-b border-hairline">
-        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between gap-4">
+    <div className="min-h-screen bg-black text-ink flex flex-col sm:flex-row">
+      <aside className="flex-shrink-0 border-b sm:border-b-0 sm:border-r border-hairline sm:w-60 sm:min-h-screen flex flex-col">
+        <div className="px-6 py-5">
           <Link href="/" aria-label="Dr. Jude Osamor — home">
-            <BrandLogo className="w-40 h-10" sizes="160px" priority />
+            <BrandLogo className="w-36 h-9" sizes="144px" priority />
           </Link>
+        </div>
+
+        <nav className="flex sm:flex-col gap-1 px-3 overflow-x-auto sm:overflow-visible">
+          {TABS.map((t) => {
+            const Icon = t.icon;
+            return (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => setTab(t.id)}
+                className={`type-label flex items-center gap-2.5 px-3.5 py-3 whitespace-nowrap transition-colors cursor-pointer border-l-2 border-b-2 sm:border-b-0 ${
+                  tab === t.id
+                    ? "border-gold text-gold sm:bg-zinc-900/60"
+                    : "border-transparent text-zinc-500 hover:text-zinc-300"
+                }`}
+              >
+                <Icon className="w-4 h-4 flex-shrink-0" />
+                {t.label}
+              </button>
+            );
+          })}
+        </nav>
+
+        <div className="hidden sm:block mt-auto px-3 pb-6 pt-4">
+          <button
+            type="button"
+            onClick={() => setIsAuthenticated(false)}
+            className="type-label w-full flex items-center gap-2.5 px-3.5 py-3 text-zinc-500 hover:text-gold transition-colors cursor-pointer"
+          >
+            <LogOut className="w-4 h-4" />
+            Lock
+          </button>
+        </div>
+      </aside>
+
+      <div className="flex-1 min-w-0">
+        <header className="flex sm:hidden items-center justify-end border-b border-hairline px-6 py-3">
           <button
             type="button"
             onClick={() => setIsAuthenticated(false)}
             className="type-label flex items-center gap-2 px-3 py-2 border border-hairline text-zinc-400 hover:text-gold hover:border-gold/50 transition-colors cursor-pointer"
           >
             <LogOut className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Lock</span>
+            Lock
           </button>
-        </div>
+        </header>
 
-        <nav className="max-w-5xl mx-auto px-6 flex gap-1 overflow-x-auto">
-          {TABS.map((t) => (
-            <button
-              key={t.id}
-              type="button"
-              onClick={() => setTab(t.id)}
-              className={`type-label px-4 py-3 border-b-2 whitespace-nowrap transition-colors cursor-pointer ${
-                tab === t.id
-                  ? "border-gold text-gold"
-                  : "border-transparent text-zinc-500 hover:text-zinc-300"
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
-        </nav>
-      </header>
-
-      <main className="max-w-5xl mx-auto px-6 py-12">
-        {tab === "subscribers" && <SubscribersPanel />}
-        {tab === "publications" && <PublicationsPanel />}
-        {tab === "media" && <MediaPanel />}
-      </main>
+        <main className="max-w-4xl mx-auto px-6 py-12">
+          {tab === "subscribers" && <SubscribersPanel />}
+          {tab === "publications" && <PublicationsPanel />}
+          {tab === "media" && <MediaPanel />}
+        </main>
+      </div>
     </div>
   );
 }

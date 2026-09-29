@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Plus, Pencil, Trash2, X, Check } from "lucide-react";
 import { Field, TextInput, TextArea } from "@/components/admin/Field";
+import Modal from "@/components/admin/Modal";
 
 const emptyAppearance = {
   title: "",
@@ -26,12 +27,12 @@ function AppearanceForm({ initial, onCancel, onSave, saving }) {
         e.preventDefault();
         onSave(form);
       }}
-      className="space-y-4 border border-hairline p-6 bg-zinc-900/60"
+      className="space-y-4"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="sm:col-span-2">
           <Field label="Title">
-            <TextInput required value={form.title} onChange={set("title")} />
+            <TextInput required autoFocus value={form.title} onChange={set("title")} />
           </Field>
         </div>
         <Field label="Kind (e.g. Keynote Panel)">
@@ -90,10 +91,10 @@ function TopicForm({ initial, onCancel, onSave, saving }) {
         e.preventDefault();
         onSave(form);
       }}
-      className="space-y-4 border border-hairline p-6 bg-zinc-900/60"
+      className="space-y-4"
     >
       <Field label="Topic">
-        <TextInput required value={form.topic} onChange={set("topic")} />
+        <TextInput required autoFocus value={form.topic} onChange={set("topic")} />
       </Field>
       <Field label="Audience">
         <TextInput value={form.audience} onChange={set("audience")} />
@@ -269,54 +270,56 @@ export default function MediaPanel() {
         </div>
 
         {addingAppearance && (
-          <AppearanceForm
-            initial={emptyAppearance}
-            saving={saving}
-            onCancel={() => setAddingAppearance(false)}
-            onSave={addAppearance}
-          />
+          <Modal title="Add Appearance" onClose={() => setAddingAppearance(false)}>
+            <AppearanceForm
+              initial={emptyAppearance}
+              saving={saving}
+              onCancel={() => setAddingAppearance(false)}
+              onSave={addAppearance}
+            />
+          </Modal>
+        )}
+
+        {editingAppearanceId && (
+          <Modal title="Edit Appearance" onClose={() => setEditingAppearanceId(null)}>
+            <AppearanceForm
+              initial={appearanceToForm(appearances.find((a) => a.id === editingAppearanceId))}
+              saving={saving}
+              onCancel={() => setEditingAppearanceId(null)}
+              onSave={(form) => updateAppearance(editingAppearanceId, form)}
+            />
+          </Modal>
         )}
 
         <ul className="border-t border-hairline">
-          {appearances.map((a) =>
-            editingAppearanceId === a.id ? (
-              <li key={a.id} className="py-4 border-b border-hairline">
-                <AppearanceForm
-                  initial={appearanceToForm(a)}
-                  saving={saving}
-                  onCancel={() => setEditingAppearanceId(null)}
-                  onSave={(form) => updateAppearance(a.id, form)}
-                />
-              </li>
-            ) : (
-              <li key={a.id} className="group flex items-start gap-4 py-4 border-b border-hairline">
-                <div className="flex-1 min-w-0 space-y-1">
-                  <h3 className="text-sm font-medium text-ink">{a.title}</h3>
-                  <p className="text-xs text-zinc-500">
-                    {a.kind} · {a.channel}
-                    {a.videoId ? " · has video" : " · link only"}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setEditingAppearanceId(a.id)}
-                  aria-label={`Edit ${a.title}`}
-                  className="flex-shrink-0 p-2 text-zinc-500 hover:text-gold transition-colors cursor-pointer"
-                >
-                  <Pencil className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => deleteAppearance(a.id, a.title)}
-                  aria-label={`Delete ${a.title}`}
-                  className="flex-shrink-0 p-2 text-zinc-700 hover:text-red-400 transition-colors cursor-pointer"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </li>
-            )
-          )}
-          {appearances.length === 0 && !addingAppearance && (
+          {appearances.map((a) => (
+            <li key={a.id} className="group flex items-start gap-4 py-4 border-b border-hairline">
+              <div className="flex-1 min-w-0 space-y-1">
+                <h3 className="text-sm font-medium text-ink">{a.title}</h3>
+                <p className="text-xs text-zinc-500">
+                  {a.kind} · {a.channel}
+                  {a.videoId ? " · has video" : " · link only"}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEditingAppearanceId(a.id)}
+                aria-label={`Edit ${a.title}`}
+                className="flex-shrink-0 p-2 text-zinc-500 hover:text-gold transition-colors cursor-pointer"
+              >
+                <Pencil className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => deleteAppearance(a.id, a.title)}
+                aria-label={`Delete ${a.title}`}
+                className="flex-shrink-0 p-2 text-zinc-700 hover:text-red-400 transition-colors cursor-pointer"
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+            </li>
+          ))}
+          {appearances.length === 0 && (
             <li className="py-16 text-center text-sm text-zinc-500">No appearances yet.</li>
           )}
         </ul>
@@ -341,51 +344,56 @@ export default function MediaPanel() {
         </div>
 
         {addingTopic && (
-          <TopicForm
-            initial={emptyTopic}
-            saving={saving}
-            onCancel={() => setAddingTopic(false)}
-            onSave={addTopic}
-          />
+          <Modal title="Add Topic" onClose={() => setAddingTopic(false)}>
+            <TopicForm
+              initial={emptyTopic}
+              saving={saving}
+              onCancel={() => setAddingTopic(false)}
+              onSave={addTopic}
+            />
+          </Modal>
+        )}
+
+        {editingTopicId && (
+          <Modal title="Edit Topic" onClose={() => setEditingTopicId(null)}>
+            <TopicForm
+              initial={(() => {
+                const found = topics.find((topic) => topic.id === editingTopicId);
+                return { topic: found.topic, audience: found.audience, desc: found.desc };
+              })()}
+              saving={saving}
+              onCancel={() => setEditingTopicId(null)}
+              onSave={(form) => updateTopic(editingTopicId, form)}
+            />
+          </Modal>
         )}
 
         <ul className="border-t border-hairline">
-          {topics.map((t) =>
-            editingTopicId === t.id ? (
-              <li key={t.id} className="py-4 border-b border-hairline">
-                <TopicForm
-                  initial={{ topic: t.topic, audience: t.audience, desc: t.desc }}
-                  saving={saving}
-                  onCancel={() => setEditingTopicId(null)}
-                  onSave={(form) => updateTopic(t.id, form)}
-                />
-              </li>
-            ) : (
-              <li key={t.id} className="group flex items-start gap-4 py-4 border-b border-hairline">
-                <div className="flex-1 min-w-0 space-y-1">
-                  <h3 className="text-sm font-medium text-ink">{t.topic}</h3>
-                  <p className="text-xs text-zinc-500">{t.audience}</p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setEditingTopicId(t.id)}
-                  aria-label={`Edit ${t.topic}`}
-                  className="flex-shrink-0 p-2 text-zinc-500 hover:text-gold transition-colors cursor-pointer"
-                >
-                  <Pencil className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => deleteTopic(t.id, t.topic)}
-                  aria-label={`Delete ${t.topic}`}
-                  className="flex-shrink-0 p-2 text-zinc-700 hover:text-red-400 transition-colors cursor-pointer"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </li>
-            )
-          )}
-          {topics.length === 0 && !addingTopic && (
+          {topics.map((t) => (
+            <li key={t.id} className="group flex items-start gap-4 py-4 border-b border-hairline">
+              <div className="flex-1 min-w-0 space-y-1">
+                <h3 className="text-sm font-medium text-ink">{t.topic}</h3>
+                <p className="text-xs text-zinc-500">{t.audience}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEditingTopicId(t.id)}
+                aria-label={`Edit ${t.topic}`}
+                className="flex-shrink-0 p-2 text-zinc-500 hover:text-gold transition-colors cursor-pointer"
+              >
+                <Pencil className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => deleteTopic(t.id, t.topic)}
+                aria-label={`Delete ${t.topic}`}
+                className="flex-shrink-0 p-2 text-zinc-700 hover:text-red-400 transition-colors cursor-pointer"
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+            </li>
+          ))}
+          {topics.length === 0 && (
             <li className="py-16 text-center text-sm text-zinc-500">No topics yet.</li>
           )}
         </ul>

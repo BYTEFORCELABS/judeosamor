@@ -45,9 +45,9 @@ export default function Hero() {
               delay={220}
               className="type-body text-base sm:text-lg text-zinc-300 max-w-xl mt-8"
             >
-              He directs enterprise cyber defence at Barclays, researches how machine learning detects malicious anomalies and
-              phishing at scale, and co-founded CyBlack to open cyber careers to Black
-              professionals across the UK.
+              He directs enterprise cyber defence at a Fortune 500 financial institution, lectures in cyber security and
+              digital forensics, researches how machine learning detects malicious anomalies and phishing at scale, and
+              co-founded CyBlack to open cyber careers to Black professionals across the UK.
             </Reveal>
 
             {/* Side by side at every width. On a phone the labels shorten

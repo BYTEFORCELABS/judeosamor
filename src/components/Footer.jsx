@@ -11,12 +11,12 @@ export default function Footer() {
     {
       name: "LinkedIn",
       icon: LinkedInIcon,
-      url: "https://www.linkedin.com/search/results/all/?keywords=Jude%20Osamor%20CyBlack",
+      url: "https://www.linkedin.com/in/jude-osamor-20182956/",
     },
     {
       name: "ResearchGate",
       icon: ResearchGateIcon,
-      url: "https://www.researchgate.net/profile/Jude-Osamor",
+      url: "https://www.researchgate.net/profile/Jude-Osamor-2",
     },
     {
       name: "X (Twitter)",
